@@ -2,8 +2,7 @@
 # matching the Pages env var CRON_SECRET.
 name: Reminders
 on:
-  schedule:
-    - cron: '0 13 * * *' # ~7am Mountain
+  # Manual-only in this template. Add a schedule trigger (e.g. cron '0 13 * * *') once deploying.
   workflow_dispatch:
 
 jobs:
