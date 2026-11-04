@@ -1,0 +1,24 @@
+# Copy to .dev.vars for local development. In production set these with:
+#   npx wrangler pages secret put ADMIN_PASSWORD
+#   npx wrangler pages secret put SESSION_SECRET
+ADMIN_PASSWORD=change-me
+SESSION_SECRET=a-long-random-string
+# Optional: enables "Find a course" (free key from https://golfcourseapi.com). In production:
+#   npx wrangler pages secret put GOLF_COURSE_API_KEY
+GOLF_COURSE_API_KEY=
+# Google sign-in (optional locally). Redirect URI: http://localhost:8788/api/auth/google/callback
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+# Local only: sign in as any email from the sign-in page (ignored unless the host is localhost).
+DEV_LOGIN=true
+# Email sign-in codes via Resend (free tier, https://resend.com). EMAIL_FROM defaults to the
+# address in functions/lib/brand.ts when unset. In production: wrangler pages secret put RESEND_API_KEY
+RESEND_API_KEY=
+EMAIL_FROM=Your League <noreply@example.com>
+# Web Push (VAPID). Store the PRIVATE key as a JWK JSON string; see README "Push notifications".
+VAPID_JWK=
+VAPID_SUBJECT=mailto:admin@example.com
+# Shared secret the daily reminder cron (GitHub Action) sends as X-Cron-Key to /api/cron/reminders.
+CRON_SECRET=
+# Set to "false" to allow access from outside the US (default blocks non-US via CF-IPCountry).
+US_ONLY=false

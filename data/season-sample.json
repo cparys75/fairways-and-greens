@@ -1,0 +1,71 @@
+{
+  "season": { "name": "Sample League 2025" },
+  "settings": { "format": "teamMatch" },
+  "nines": [
+    {
+      "id": "front",
+      "name": "Front Nine",
+      "course": "Sample Country Club",
+      "tee": "White",
+      "par": [4, 4, 3, 5, 4, 4, 3, 5, 4],
+      "menHcp": [5, 1, 9, 3, 7, 2, 8, 4, 6],
+      "womenHcp": [5, 1, 9, 3, 7, 2, 8, 4, 6]
+    }
+  ],
+  "teams": [
+    { "id": 1, "name": "Eagles" },
+    { "id": 2, "name": "Birdies" },
+    { "id": 3, "name": "Bogeys" },
+    { "id": 4, "name": "Pars" }
+  ],
+  "players": [
+    { "id": 1, "name": "Alex Fairway", "teamId": 1, "startingHc": 6, "redTees": false },
+    { "id": 2, "name": "Sam Divot", "teamId": 1, "startingHc": 12, "redTees": false },
+    { "id": 3, "name": "Jordan Mulligan", "teamId": 2, "startingHc": 3, "redTees": false },
+    { "id": 4, "name": "Casey Chip", "teamId": 2, "startingHc": 15, "redTees": false },
+    { "id": 5, "name": "Riley Putt", "teamId": 3, "startingHc": 9, "redTees": false },
+    { "id": 6, "name": "Morgan Slice", "teamId": 3, "startingHc": 18, "redTees": false },
+    { "id": 7, "name": "Taylor Bunker", "teamId": 4, "startingHc": 7, "redTees": false },
+    { "id": 8, "name": "Jamie Links", "teamId": 4, "startingHc": 11, "redTees": false }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "date": "2025-05-06",
+      "nineId": "front",
+      "matches": [
+        { "teamA": 1, "teamB": 2, "slot": "A", "teeTime": "5:00pm" },
+        { "teamA": 3, "teamB": 4, "slot": "B", "teeTime": "5:09pm" }
+      ],
+      "scores": [
+        { "playerId": 1, "holes": [4, 5, 3, 6, 4, 4, 4, 5, 5] },
+        { "playerId": 2, "holes": [5, 6, 4, 6, 5, 5, 4, 7, 5] },
+        { "playerId": 3, "holes": [4, 4, 3, 5, 4, 5, 3, 5, 4] },
+        { "playerId": 4, "holes": [6, 5, 5, 7, 5, 6, 4, 6, 6] },
+        { "playerId": 5, "holes": [5, 5, 4, 5, 5, 4, 4, 6, 5] },
+        { "playerId": 6, "holes": [6, 6, 4, 7, 6, 5, 5, 7, 6] },
+        { "playerId": 7, "holes": [4, 5, 3, 5, 4, 4, 4, 5, 4] },
+        { "playerId": 8, "holes": [5, 5, 4, 6, 5, 5, 4, 6, 5] }
+      ]
+    },
+    {
+      "number": 2,
+      "date": "2025-05-13",
+      "nineId": "front",
+      "matches": [
+        { "teamA": 1, "teamB": 3, "slot": "A", "teeTime": "5:00pm" },
+        { "teamA": 2, "teamB": 4, "slot": "B", "teeTime": "5:09pm" }
+      ],
+      "scores": [
+        { "playerId": 1, "holes": [4, 4, 4, 5, 4, 4, 3, 6, 4] },
+        { "playerId": 2, "holes": [5, 5, 4, 6, 5, 6, 4, 6, 5] },
+        { "playerId": 3, "holes": [4, 5, 3, 5, 4, 4, 4, 5, 4] },
+        { "playerId": 4, "holes": [5, 6, 4, 7, 5, 5, 5, 6, 6] },
+        { "playerId": 5, "holes": [5, 5, 3, 6, 5, 5, 4, 6, 5] },
+        { "playerId": 6, "holes": null, "virtual": true },
+        { "playerId": 7, "holes": [4, 4, 3, 5, 5, 4, 3, 5, 4] },
+        { "playerId": 8, "holes": [5, 5, 4, 6, 5, 5, 4, 7, 5] }
+      ]
+    }
+  ]
+}

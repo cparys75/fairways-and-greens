@@ -1,0 +1,39 @@
+{
+  "name": "fairways-and-greens",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Golf league scoring, handicaps and standings - replaces the weekly Numbers spreadsheet.",
+  "scripts": {
+    "dev": "vite",
+    "dev:full": "npm run build && wrangler pages dev dist --d1 DB --local",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b",
+    "db:migrate:local": "wrangler d1 migrations apply fairways-and-greens --local",
+    "db:migrate": "wrangler d1 migrations apply fairways-and-greens --remote",
+    "seed:sql": "tsx tools/seed-sql.ts data/season-sample.json > data/seed.sql",
+    "db:seed:local": "npm run seed:sql && wrangler d1 execute fairways-and-greens --local --file data/seed.sql",
+    "deploy": "npm run build && wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "hono": "^4.6.14",
+    "leaflet": "^1.9.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261030.1",
+    "@types/leaflet": "^1.9.22",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
+  }
+}

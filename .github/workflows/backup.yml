@@ -1,0 +1,32 @@
+# Weekly copy of the whole database, kept 90 days as a download on the workflow run
+# (Actions → Backup → a run → Artifacts). Cloudflare's own Time Travel covers the last 7 days.
+# To restore: npx wrangler d1 execute golf-league --remote --file golf-league-YYYY-MM-DD.sql (into an empty database).
+name: Backup
+on:
+  schedule:
+    - cron: '17 9 * * 1' # Mondays, early morning US time
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Export the database
+        run: npx wrangler d1 export golf-league --remote --output "golf-league-$(date -u +%F).sql"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Check it isn't empty
+        run: test "$(grep -c 'INSERT INTO' golf-league-*.sql)" -gt 0
+      - uses: actions/upload-artifact@v7
+        with:
+          name: golf-league-database
+          path: golf-league-*.sql
+          retention-days: 90

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/cparys75/fairways-and-greens/discussions
+    about: Ask a setup question or discuss an idea before opening an issue.
+  - name: Security vulnerability
+    url: https://github.com/cparys75/fairways-and-greens/security/advisories/new
+    about: Report a security issue privately (see SECURITY.md).

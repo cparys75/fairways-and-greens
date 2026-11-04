@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Fairways and Greens">
+  <rect width="512" height="512" rx="104" fill="#154a7e"/>
+  <rect x="296" y="110" width="12" height="250" rx="6" fill="#ffffff"/>
+  <path d="M308 122 L420 156 L308 190 Z" fill="#39d17b"/>
+  <circle cx="206" cy="340" r="78" fill="#ffffff"/>
+  <g fill="#cdd9e6"><circle cx="188" cy="322" r="8"/><circle cx="224" cy="322" r="8"/><circle cx="206" cy="344" r="8"/><circle cx="188" cy="360" r="8"/><circle cx="224" cy="360" r="8"/></g>
+</svg>

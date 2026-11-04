@@ -1,0 +1,13 @@
+{
+  "name": "Fairways and Greens",
+  "short_name": "Fairways",
+  "description": "League scores, standings and your own rounds",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#154a7e",
+  "icons": [
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

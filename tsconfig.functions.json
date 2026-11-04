@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "composite": true,
+    "tsBuildInfoFile": "node_modules/.tmp/functions.tsbuildinfo",
+    "types": [
+      "@cloudflare/workers-types"
+    ]
+  },
+  "include": [
+    "functions",
+    "src/engine"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "functions/test"
+  ]
+}

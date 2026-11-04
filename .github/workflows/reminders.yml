@@ -1,0 +1,18 @@
+# Sends match-day push reminders each morning (US time). Needs repo secret CRON_SECRET,
+# matching the Pages env var CRON_SECRET.
+name: Reminders
+on:
+  schedule:
+    - cron: '0 13 * * *' # ~7am Mountain
+  workflow_dispatch:
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    steps:
+      - name: Trigger match-day reminders
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://example.com/api/cron/reminders -H "X-Cron-Key: ${{ secrets.CRON_SECRET }}")
+          echo "reminders endpoint returned $code"
+          test "$code" = "200"
