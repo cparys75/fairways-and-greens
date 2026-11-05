@@ -14,6 +14,7 @@
     "db:migrate:local": "wrangler d1 migrations apply fairways-and-greens --local",
     "db:migrate": "wrangler d1 migrations apply fairways-and-greens --remote",
     "seed:sql": "tsx tools/seed-sql.ts data/season-sample.json > data/seed.sql",
+    "vapid": "node tools/gen-vapid.mjs",
     "db:seed:local": "npm run seed:sql && wrangler d1 execute fairways-and-greens --local --file data/seed.sql",
     "deploy": "npm run build && wrangler pages deploy dist"
   },

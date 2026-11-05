@@ -291,8 +291,7 @@ opened from there, Safari 16.4+). Events: new message-board post, schedule shift
 needs a card or scores were posted, a join request (to league admins), and a daily match-day reminder.
 
 Setup (one time):
-1. Generate a VAPID key pair and copy the JSON:
-   `node -e 'const {webcrypto:w}=require("crypto");(async()=>{const k=await w.subtle.generateKey({name:"ECDSA",namedCurve:"P-256"},true,["sign"]);console.log(JSON.stringify(await w.subtle.exportKey("jwk",k.privateKey)))})()'`
+1. Generate a VAPID key pair with `npm run vapid` and copy the printed JSON (the private key as a JWK).
 2. In the Pages project, set env vars: `VAPID_JWK` (the JSON above, as a secret), `VAPID_SUBJECT` (e.g. `mailto:you@example.com`).
 3. For match-day reminders, set `CRON_SECRET` (any random string) as both a Pages env var and a GitHub repo secret;
    `.github/workflows/reminders.yml` calls `/api/cron/reminders` each morning.
