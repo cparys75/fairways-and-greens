@@ -71,6 +71,27 @@ function render(data: SeasonData, path: string, route: string, element: React.Re
   );
 }
 
+it('shows signed recent differentials and highlights the scores used for handicap', () => {
+  const season = seasonFor('stroke');
+  const round = season.weeks[0];
+  const scores = [[3, ...holes(4).slice(1)], holes(4), [5, 5, 5, ...holes(4).slice(3)]];
+  const data = {
+    ...season,
+    settings: { ...season.settings, handicapWindow: 4, handicapBest: 2 },
+    weeks: scores.map((holes, index) => ({
+      ...round,
+      number: index + 1,
+      scores: [{ playerId: 1, holes }],
+    })),
+  };
+
+  const html = render(data, '/handicaps', '/handicaps', <HandicapsPage />);
+  expect(html).toContain('<td class="hc-diff " title="Starting handicap"><span class="v">2</span>');
+  expect(html).toContain('<td class="hc-diff used" title="Week 1 · counts now"><span class="v">-1</span>');
+  expect(html).toContain('<td class="hc-diff used" title="Week 2 · counts now"><span class="v">0</span>');
+  expect(html).toContain('<td class="hc-diff " title="Week 3"><span class="v">+3</span>');
+});
+
 describe.each(FORMATS.map((f) => f.id))('%s', (format) => {
   const data = seasonFor(format);
   it.each([

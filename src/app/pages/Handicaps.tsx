@@ -52,7 +52,7 @@ export function HandicapsPage() {
                       className={`hc-diff ${e.used ? 'used' : ''}`}
                       title={e.week == null ? 'Starting handicap' : `Week ${e.week}${e.used ? ' · counts now' : ''}`}
                     >
-                      <span className="v">{e.value}</span>
+                      <span className="v">{e.week == null ? e.value : signed(e.value)}</span>
                       <span className="wk">{e.week == null ? 'start' : `wk ${e.week}`}</span>
                     </td>
                   ))}
